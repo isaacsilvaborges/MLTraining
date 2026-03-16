@@ -43,6 +43,17 @@ lr_results = pd.DataFrame(['Linear Regression', lr_train_mse, lr_train_r2, lr_te
 lr_results.columns = ['Method', 'Training MSE', 'Training R2', 'Testing MSE', 'Testing R2']
 print(lr_results)
 
+# Test
+while True:
+    cmd = input("X: ")
+    if cmd == "exit":
+        break
+    X_sample = [float(x) for x in cmd.split()]
+    sample = pd.DataFrame([X_sample], columns=X.columns)
+    prediction = lr_model.predict(sample)
+    print("y: ", prediction[0])
+    
+
 
 
 
