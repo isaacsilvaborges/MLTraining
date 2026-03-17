@@ -16,7 +16,7 @@ for column in df.columns:
 # Preparing the data
 y = df['Yield_tons_per_hectare']
 X = df.drop('Yield_tons_per_hectare', axis=1)
-X = pd.get_dummies(X, drop_first=True) # THis is going to create several columns and make the types boolean between 0 and 1
+X = pd.get_dummies(X, drop_first=True) # This is going to create several columns and make the types boolean between 0 and 1
 print(X.columns) # You will notice that, even thought theres like 4 regions, he creates 3, cus he makes the first alfabetical one as its pattern, so reduces redundancy
 print("I just prepared the data...")
 
