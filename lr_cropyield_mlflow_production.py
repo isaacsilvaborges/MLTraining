@@ -65,3 +65,21 @@ with mlflow.start_run(run_name="Linear_Regression_Production"):
     mlflow.sklearn.log_model(production, "production_model")
 
     print(f"Modelo com R2 de {test_r2:.4f}")
+
+# Updated Test Loop
+while True:
+    cmd = input("Enter values separated by space (or 'exit'): ")
+    if cmd == "exit":
+        break
+
+    raw_input = cmd.split()
+
+    sample = pd.DataFrame([raw_input], columns=X.columns)
+
+    for col in X.columns:
+        if X[col].dtype in ['float64', 'int64', 'int32']:
+            sample[col] = pd.to_numeric(sample[col])
+
+    prediction = production.predict(sample)
+    print(f"Predicted Yield: {prediction[0]:.4f}")
+    
